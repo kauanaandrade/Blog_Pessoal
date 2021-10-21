@@ -4,9 +4,18 @@ public class UserLogin {
 
 	private String nome;
 	private String usuario;
+	private String email;
 	private String senha;
 	private String token;
 	
+	
+	
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getNome() {
 		return nome;
 	}
