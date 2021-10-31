@@ -95,10 +95,5 @@ public class Usuario {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public boolean isPresent() {
-		// TODO Auto-generated method stub
-		return true;
-	}
-
-	
+		
 }

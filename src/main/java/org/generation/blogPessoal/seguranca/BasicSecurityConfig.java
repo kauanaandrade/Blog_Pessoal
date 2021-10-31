@@ -20,6 +20,8 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDatailsService);
+		auth.inMemoryAuthentication()
+        .withUser("kauana").password(passwordEncoder().encode("kauana")).authorities("ROLE_ADMIN");
 	}
 	
 	@Bean
@@ -32,7 +34,6 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 		.antMatchers("/api/v1/usuario/logar").permitAll()
 		.antMatchers("/api/v1/usuario/cadastrar").permitAll()
-		.antMatchers("/api/v1/usuario/todos").permitAll()
 		.anyRequest().authenticated()
 		.and().httpBasic()
 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

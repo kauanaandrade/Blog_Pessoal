@@ -8,23 +8,23 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class UserDatilsImpl implements UserDetails {
-	
+
 	/**
 	 * 
 	 */
-	private static final Long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	private String email;
 	private String password;
-	
+
 	private List<GrantedAuthority> autorizacoes;
 
-	
 	public UserDatilsImpl(Usuario user) {
 		this.email = user.getEmail();
 		this.password = user.getSenha();
-		}
-	
-	public UserDatilsImpl() {}
+	}
+
+	public UserDatilsImpl() {
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -47,7 +47,7 @@ public class UserDatilsImpl implements UserDetails {
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
@@ -66,10 +66,6 @@ public class UserDatilsImpl implements UserDetails {
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
 		return true;
-	}
-
-	public static Long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 }

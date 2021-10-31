@@ -16,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "postagem")
+@Table(name = "tb_postagem")
 
 
 public class Postagem {
@@ -29,9 +29,12 @@ public class Postagem {
 	private LocalDate dataPostagem = LocalDate.now();
 
 	@ManyToOne
-	@JoinColumn(name = "tema_id")
-	@JsonIgnoreProperties({"postagens"})
+	@JsonIgnoreProperties("postagem")
 	private Tema tema;
+	
+	@ManyToOne
+	@JsonIgnoreProperties("postagem")
+	private Usuario usuario;
 
 	public Long getIdPostagem() {
 		return idPostagem;
