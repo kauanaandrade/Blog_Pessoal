@@ -1,10 +1,9 @@
 package org.generation.blogPessoal.Model;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +13,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import io.swagger.annotations.ApiModelProperty;
@@ -40,14 +38,10 @@ public class Usuario {
 	@Size(min = 5, max = 100)
 	private String senha;
 
-	@Column(name = "tb_dataNascimento")
-	@JsonFormat(pattern = "yyyy-mm-dd")
-	private LocalDate dataNascimento;
-
 	private String foto;
 
 	private String tipoUsuario;
-	
+
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> Postagem;
@@ -68,13 +62,13 @@ public class Usuario {
 		this.tipoUsuario = tipoUsuario;
 	}
 
-	public Usuario(Long idUsuario, String nome, String email, String senha, LocalDate dataNascimento) {
+	public Usuario(Long idUsuario, String nome, String email, String senha) {
 
 		this.idUsuario = idUsuario;
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
-		this.dataNascimento = dataNascimento;
+
 	}
 
 	public Usuario() {
@@ -110,14 +104,6 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
-	}
-
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
 	}
 
 }
