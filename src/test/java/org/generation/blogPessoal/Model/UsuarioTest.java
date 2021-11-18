@@ -31,12 +31,12 @@ public class UsuarioTest {
 	
 	Validator validator = factory.getValidator();
 	
-	@BeforeEach
+	/*@BeforeEach
 	public void start() {
 		
 		LocalDate data = LocalDate.parse("2003-01-13", DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 		usuario = new Usuario(0L, "Kauana Andrade", "kauana@gmail.com", "12345678", data);
-	}
+	}*/
 	
 	@Test
 	void testeValidaAtributos() {
